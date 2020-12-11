@@ -1,0 +1,83 @@
+$themes: (
+  "white": #eee, 
+  "blue": #1e41c1,
+  "orange": #b64b1e,
+  "purple": #7852ae,
+  "green": #5faf3b,
+  "black": #000,
+);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #fff;
+  color: #222;
+  padding: 0;
+  height: 100vh;
+}
+
+.overrideClass {
+  padding-bottom: 30px;
+  .theme-options {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+    padding: 20px 0;
+    div {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      margin: 2px 10px;
+      border: 1px solid #fff;
+      display: inline-block;
+      opacity: .5;
+      &.active {
+        opacity: 1;
+      }
+      @each $name, $color in $themes {
+        &#theme-#{$name} {
+          background-color: $color;
+        }
+      }
+    }
+  }
+  .content-box {
+    margin: 0 auto;
+    background-color: #eee;
+    color: #222;
+    border-radius: 8px;
+    padding: 30px 30px 40px;
+    max-width: 800px;
+    h3 {
+      line-height: 1.2;
+      margin: 0;
+      font-size: 26px;
+    }
+    h5 {
+      line-height: 1.5;
+      margin: 0 0 22px;
+      font-size: 20px;
+    }
+  }
+  @each $name, $color in $themes {
+    &.theme-#{$name} {
+      background-color: #bbb;
+      .content-box {
+        background-color: #ddd;
+        h3,h5 {
+          color: $color;
+        }
+        p {
+          color: $color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.css-variable-app.red {
+  --color: red;
+  --background: blue;
+}
+
+.css-variable-app.blue {
+  --color: blue;
+  --background: red;
+}
+
+.css-variable-app {
+  color: var(--color);
+  background: var(--background);
+}
+
